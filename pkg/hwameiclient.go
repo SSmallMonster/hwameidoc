@@ -13,6 +13,8 @@ import (
 	apisv1alpha1 "github.com/hwameistor/hwameistor/pkg/apis/hwameistor/v1alpha1"
 )
 
+var home = os.Getenv("HOME")
+
 func BuildKubeClient(kubeConfigPath string) (*kubernetes.Clientset, client.Client, error) {
 	loadingRules := clientcmd.NewDefaultPathOptions().LoadingRules
 

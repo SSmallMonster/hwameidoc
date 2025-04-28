@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/client-go/util/homedir"
+	"path/filepath"
 )
 
 var VolumeReplica = &cobra.Command{
@@ -38,7 +40,7 @@ var VolumeReplicaGet = &cobra.Command{
 func volumeReplicaGetRunE(_ *cobra.Command, args []string) error {
 	volumeReplicaName := args[0]
 
-	hwameiCli, err := BuildHwameiStorageClient("～/.kube/config")
+	hwameiCli, err := BuildHwameiStorageClient(filepath.Join(homedir.HomeDir(), ".kube/config"))
 	if err != nil {
 		return err
 	}
@@ -64,7 +66,7 @@ var VolumeReplicaReset = &cobra.Command{
 func volumeReplicaResetRunE(_ *cobra.Command, args []string) error {
 	volumeReplicaName := args[0]
 
-	hwameiCli, err := BuildHwameiStorageClient("/Users/mmzhou/.kube/config")
+	hwameiCli, err := BuildHwameiStorageClient(filepath.Join(homedir.HomeDir(), ".kube/config"))
 	if err != nil {
 		return err
 	}
