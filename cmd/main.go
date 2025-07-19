@@ -39,6 +39,7 @@ func init() {
 
 	// Sub commands
 	Hwameictl.AddCommand(pkg.VolumeReplica)
+	Hwameictl.AddCommand(pkg.Volume)
 
 	// Disable debug mode
 	if debug == false {
